@@ -41,8 +41,7 @@ public class PersonaController {
 
     @GetMapping("/apellido/{apellido}")
     ResponseEntity<List<Persona>> getPersonaByApellido(@PathVariable String apellido){
-        List<Persona> personas = personaRepository.findByApellido(apellido);
-        return ResponseEntity.ok(personas);
+        return ResponseEntity.ok(personaRepository.findByApellido(apellido));
     }
 
     @GetMapping("/curso_fav/{curso}")

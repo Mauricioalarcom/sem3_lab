@@ -1,10 +1,13 @@
 package com.example.lab_sem_3.artista;
 
 
+import com.example.lab_sem_3.Cancion.Cancion;
 import com.example.lab_sem_3.persona.Persona;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -14,10 +17,13 @@ public class Artista {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    @Column(unique = true)
+    private String username;
 
-    @OneToOne
-    @JoinColumn(name = "persona_id")
-    @JsonBackReference
-    private Persona persona;
+    @Column(unique = true)
+    private String cancion;
+
+    @ManyToMany(mappedBy = "artistas")
+    private List<Cancion> canciones;
+
 }
