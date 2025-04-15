@@ -20,4 +20,5 @@ public class Artista {
     @JoinColumn(name = "persona_id")
     @JsonBackReference
     private Persona persona;
+    
 }
