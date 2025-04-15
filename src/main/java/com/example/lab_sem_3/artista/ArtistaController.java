@@ -20,6 +20,7 @@ public class ArtistaController {
     ArtistaRepository artistaRepository;
 
 
+
     @GetMapping
     ResponseEntity<List<Artista>> getAllArtistas(){
         List<Artista> artistas = artistaRepository.findAll();
@@ -61,4 +62,5 @@ public class ArtistaController {
         }
         return ResponseEntity.ok(artista.get());
     }
+
 }
