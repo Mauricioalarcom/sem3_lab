@@ -1,5 +1,6 @@
 package com.example.lab_sem_3;
 
+import com.example.lab_sem_3.Exceptions.Bad_GatewayException;
 import com.example.lab_sem_3.Exceptions.ResourceConflictException;
 import com.example.lab_sem_3.Exceptions.ResourceInternalServerError;
 import com.example.lab_sem_3.Exceptions.ResourceNotFoundException;
@@ -24,6 +25,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceInternalServerError.class)
     public ResponseEntity<String> handleResourceInternalServerError(ResourceInternalServerError e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+    }
+
+    @ExceptionHandler(Bad_GatewayException.class)
+    public ResponseEntity<String> handleBadGatewayException(Bad_GatewayException e) {
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(e.getMessage());
     }
 
 }

@@ -23,6 +23,9 @@ public class Artista {
     @Column(unique = true)
     private String cancion;
 
+    @Column(unique = false)
+    private String sexo;
+
     @ManyToMany(mappedBy = "artistas")
     private List<Cancion> canciones;
 

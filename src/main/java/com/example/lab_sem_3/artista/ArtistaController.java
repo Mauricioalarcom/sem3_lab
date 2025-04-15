@@ -52,4 +52,13 @@ public class ArtistaController {
         }
         throw new ResourceInternalServerError("La cancion " + cancion + " no existe.");
     }
+
+    @GetMapping
+    ResponseEntity<Artista> getArtistaBySexo(@PathVariable String sexo){
+        Optional<Artista> artista = artistaRepository.findBySexo(sexo);
+        if (artista.isEmpty()) {
+            return null;
+        }
+        return ResponseEntity.ok(artista.get());
+    }
 }

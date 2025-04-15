@@ -9,4 +9,5 @@ public interface ArtistaRepository extends JpaRepository<Artista, Long> {
 
     Optional<Artista> findByUsername(String username);
     Optional<Artista> findByCancion(String cancion);
+    Optional<Artista> findBySexo(String sexo);
 }

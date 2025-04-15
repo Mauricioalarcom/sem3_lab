@@ -9,7 +9,7 @@ import lombok.Data;
 public class NewArtistaDto {
 
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 25)
     private String nombre;
 
 
